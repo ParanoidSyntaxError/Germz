@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Square';
+    src: url(./Square.ttf);
+}
+
+@font-face {
+    font-family: 'Square Outline';
+    src: url(./SquareOutline.ttf);
+}
+
+@font-face {
+    font-family: 'Germz';
+    src: url(./Germz.ttf);
+    font-weight: normal;
+}
