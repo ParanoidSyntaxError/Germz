@@ -23,7 +23,7 @@ function Button(label: string, onClick: React.MouseEventHandler | undefined = un
     return (
         <div style={root} className='root' onClick={onClick}>
             <div style={text} className='text'>
-                {Text(label, 1, 'pointer')}
+                {Text(label, '1rem', 'pointer')}
             </div>
         </div>
     );

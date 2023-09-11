@@ -12,13 +12,12 @@ function Mint() {
     }
 
     const imageRoot: CSSProperties = {
-        width: '17rem',
-        height: '17rem',
-        backgroundColor: 'black',
+        maxWidth: '20rem',
+        width: '90vw',
     }
 
     const image: CSSProperties = {
-        padding: '0.5rem'
+        border: 'thick solid black',
     }
 
     const textRoot: CSSProperties = {
@@ -39,21 +38,21 @@ function Mint() {
             <Grid container columnSpacing={2} rowSpacing={2} justifyContent='center'>
                 <Grid>
                     <div style={imageRoot}>
-                        <img style={image} src='./images/germz/germ00.svg'></img>
+                        <img style={image} src='./metadata/svgs/0.svg'></img>
                     </div>
                 </Grid>
                 <Grid>
                     <div style={textRoot}>
-                        {Text("GERM #00", 3)}
+                        {Text("GERM #00", '3rem')}
                     </div>
                     <div style={textRoot}>
-                        {Text("COORDINATES", 1)}
+                        {Text("COORDINATES", '1rem')}
                     </div>
                     <div style={textRoot}>
-                        {Text("SPECIES", 1)}
+                        {Text("SPECIES", '1rem')}
                     </div>
                     <div style={textRoot}>
-                        {Text("NAME", 1)}
+                        {Text("NAME", '1rem')}
                     </div>
                     <div style={buttonRoot}>
                         {Button("MINT", undefined, 1.25, 0.2, 'lightgreen')}

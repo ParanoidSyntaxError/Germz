@@ -10,7 +10,7 @@ function Title() {
 
     return (
         <div style={root}>
-            {Text("GERMZ WORLD", 6)}
+            {Text("GERMZ WORLD", '17vw', '7rem')}
         </div>
     );
 }
