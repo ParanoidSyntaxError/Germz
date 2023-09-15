@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from 'react';
 import { CSSProperties } from 'react';
 import Grid from '@mui/material/Unstable_Grid2';
 import Button from './button';
 import Text from './text';
-import { ethers } from 'ethers';
-import Map from './map';
-import '../fonts/fonts.css';
 
 function Mint() {
     const root: CSSProperties = {
@@ -27,10 +23,6 @@ function Mint() {
     const buttonRoot: CSSProperties = {
         paddingLeft: '1rem',
         width: '10rem'
-    };
-
-    const mapRoot: CSSProperties = {
-
     };
 
     return (
@@ -59,10 +51,6 @@ function Mint() {
                     </div>
                 </Grid>
             </Grid>
-
-            <div style={mapRoot}>
-                {Map()}
-            </div>
         </div>
     );
 }

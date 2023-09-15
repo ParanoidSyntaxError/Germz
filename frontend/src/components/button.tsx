@@ -1,7 +1,7 @@
 import React from 'react';
 import { CSSProperties } from 'react';
 import Text from './text';
-import './button.css';
+import '../styles/button.css';
 
 function Button(label: string, onClick: React.MouseEventHandler | undefined = undefined, scale: number = 1, border: number = 0, backgroundColor: string = 'transparent') {
     const root: CSSProperties = {
@@ -23,7 +23,7 @@ function Button(label: string, onClick: React.MouseEventHandler | undefined = un
     return (
         <div style={root} className='root' onClick={onClick}>
             <div style={text} className='text'>
-                {Text(label, '1rem', 'pointer')}
+                {Text(label, '1rem', undefined, undefined, 'pointer')}
             </div>
         </div>
     );

@@ -1692,8 +1692,8 @@
       }
     },
     "src/Germz.sol": {
-      "lastModificationDate": 1694128850173,
-      "contentHash": "243f38462c9d1ca51dd612664b61666c",
+      "lastModificationDate": 1694613480235,
+      "contentHash": "4404b3950f2a5edf33ca28c7ec895761",
       "sourceName": "src/Germz.sol",
       "solcConfig": {
         "settings": {
@@ -1750,8 +1750,8 @@
       }
     },
     "src/interfaces/IGermz.sol": {
-      "lastModificationDate": 1694128834473,
-      "contentHash": "7cff630394476b9a6152e045c0a3db78",
+      "lastModificationDate": 1694587470164,
+      "contentHash": "dc95dca3b7d2b2c4c906761e1079e29c",
       "sourceName": "src/interfaces/IGermz.sol",
       "solcConfig": {
         "settings": {
@@ -1795,8 +1795,8 @@
       }
     },
     "test/GermzTest.sol": {
-      "lastModificationDate": 1694002535010,
-      "contentHash": "0e431196114112c61f893c5534f4975b",
+      "lastModificationDate": 1694587396684,
+      "contentHash": "b5a021280bf8930cda20d9241e42b63c",
       "sourceName": "test/GermzTest.sol",
       "solcConfig": {
         "settings": {

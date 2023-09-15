@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { CSSProperties } from 'react';
-import '../fonts/fonts.css';
+import MapPreview from './map-preview';
 
-function MapPoint(top: number, left: number, color: string) {
+function MapPoint(top: number, left: number, tokenId: number, status: string, color: string) {
     const root: CSSProperties = {
         top: top + '%',
         left: left + '%',
@@ -13,15 +13,29 @@ function MapPoint(top: number, left: number, color: string) {
     }
 
     const pointRoot: CSSProperties = {
-        border: '0.15rem solid black',
+        border: '0.2rem solid black',
         backgroundColor: color,
         width: '100%',
-        height: '100%'
+        height: '100%',
     }
+
+    const [isHovering, setIsHovering] = useState(false);
+
+    const handleMouseOver = () => {
+        setIsHovering(true);
+    };
+  
+    const handleMouseOut = () => {
+        setIsHovering(false);
+    };
 
     return (
         <div style={root}>
-            <div style={pointRoot}></div>
+            <div style={pointRoot} onMouseEnter={handleMouseOver} onMouseLeave={handleMouseOut}>
+                { isHovering && (
+                    MapPreview(tokenId, status, color)
+                )}
+            </div>
         </div>
     );
 }

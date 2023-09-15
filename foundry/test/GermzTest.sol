@@ -37,26 +37,6 @@ contract GermzTest is GermzHelper {
         germz.setOffchainImageBase(newOffchainImageBase);
     }
 
-    function test_setTokenSvgOverride() public {
-        (address minter, uint256 tokenId) = newMinter();
-
-        assertEq(germz.tokenSvgOverride(tokenId), false);
-
-        vm.prank(minter);
-        germz.setTokenSvgOverride(tokenId, true);
-
-        assertEq(germz.tokenSvgOverride(tokenId), true);
-    }
-
-    function test_unauthorized_setTokenSvgOverride() public {
-        (,uint256 tokenId) = newMinter();
-        address unauthorized = newAddress();
-
-        vm.prank(unauthorized);
-        vm.expectRevert();
-        germz.setTokenSvgOverride(tokenId, true);
-    }
-
     function test_mintPrice() public {
         assertEq(germz.mintPrice(), MINT_PRICE);
     }

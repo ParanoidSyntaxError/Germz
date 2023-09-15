@@ -1,10 +1,8 @@
-import React from 'react';
 import { CSSProperties } from 'react';
-import NavigationBar from './components/navigation-bar';
-import Title from './components/title';
-import Mint from './components/mint';
+import NavigationBar from '../components/navigation-bar';
+import Text from '../components/text';
 
-function Home(state: any) {
+function Soon() {
     const root: CSSProperties = {
         position: 'fixed',
         width: '90vw',
@@ -14,33 +12,27 @@ function Home(state: any) {
         left: '0',
         bottom: '0',
         overflowY: 'scroll',
-        overflowX: 'hidden'
-    }
-
-    const navigationBarRoot: CSSProperties = {
-        marginTop: '1rem'
+        overflowX: 'hidden',
+        paddingTop: '1rem',
+        paddingBottom: '4rem'
     }
 
     const titleRoot: CSSProperties = {
+        textAlign: 'center',
         marginTop: '7vh',
         marginBottom: '15vh'
     }
 
-    console.log(state);
-
     return (
         <div style={root}>
-            <div style={navigationBarRoot}>
+            <div>
                 <NavigationBar/>
             </div>
             <div style={titleRoot}>
-                <Title/>
-            </div>
-            <div>
-                <Mint/>
+                {Text("Coming Soon", '14vw', '7rem')}
             </div>
         </div>
     );
 }
 
-export default Home;
+export default Soon;

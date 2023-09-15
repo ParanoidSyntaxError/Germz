@@ -18,8 +18,6 @@ contract Germz is IGermz, ERC721Enumerable, Ownable {
     
     string private _offchainImageBase;
  
-    mapping(uint256 => bool) private _svgOverrides;
-
     uint256 private immutable _mintPrice;
 
     uint256 private immutable _maxSupply;
@@ -47,14 +45,6 @@ contract Germz is IGermz, ERC721Enumerable, Ownable {
         emit SetOffChainImageBase(base, _msgSender());
     }
  
-    function setTokenSvgOverride(uint256 tokenId, bool value) external override {
-        require(_ownerOf(tokenId) == _msgSender());
- 
-        _svgOverrides[tokenId] = value;
-    
-        emit SetTokenSvgOverride(value, tokenId, _msgSender());
-    }
- 
     function maxSupply() external view returns (uint256) {
         return _maxSupply;
     }
@@ -69,12 +59,6 @@ contract Germz is IGermz, ERC721Enumerable, Ownable {
 
     function offchainImageBase() external view returns (string memory) {
         return _offchainImageBase;
-    }
-
-    function tokenSvgOverride(uint256 tokenId) external view override returns (bool) {
-        _requireMinted(tokenId);
-
-        return _svgOverrides[tokenId];
     }
 
     function tokenSvgImage(uint256 tokenId) external view override returns (string memory) {
@@ -104,19 +88,13 @@ contract Germz is IGermz, ERC721Enumerable, Ownable {
         return _tokenAttributes(germ.coords, germ.species, germ.name);
     }
 
-    function isTokenImageSvg(uint256 tokenId) external view override returns (bool) {
-        _requireMinted(tokenId);
-
-        return _isImageSvg(tokenId);
-    }
-
     function tokenURI(uint256 tokenId) public view override returns (string memory) {
         _requireMinted(tokenId);
  
         Germ memory germ = _germ(tokenId);
         
         string memory image = _tokenImage(tokenId, germ.tokenHash);
-        if(_isImageSvg(tokenId)) {
+        if(_isImageSvg()) {
             image = string(abi.encodePacked("data:image/svg+xml;base64,", Base64.encode(bytes(image))));
         }
 
@@ -150,15 +128,15 @@ contract Germz is IGermz, ERC721Enumerable, Ownable {
     }
 
     function _tokenImage(uint256 tokenId, bytes memory tokenHash) internal view returns (string memory) {
-        if(_isImageSvg(tokenId)) {
+        if(_isImageSvg()) {
             return _tokenSvg(tokenHash);
         }
  
         return _tokenOffchainImage(tokenId);
     }
 
-    function _isImageSvg(uint256 tokenId) internal view returns (bool) {
-        if(_svgOverrides[tokenId] || bytes(_offchainImageBase).length == 0) {
+    function _isImageSvg() internal view returns (bool) {
+        if(bytes(_offchainImageBase).length == 0) {
             return true;
         }
 
@@ -277,6 +255,27 @@ contract Germz is IGermz, ERC721Enumerable, Ownable {
         } else if(tokenId == 8) {
             return Germ(
                 hex"05043468047C21047321042411042B1104952104B611049A2104B911022311022C11023614023B21025C21027D21027221025321023421029312029611028712029911029B1202AD3102A23102D31102DC11016512016912",
+                "",
+                "",
+                ""
+            );
+        } else if(tokenId == 9) {
+            return Germ(
+                hex"0207446807A61107A911033311033C11033516034411034B11035331035C31038421038B2103971203A51103B61103B91103AA1103A32103C41103AC2103CB11016512016912",
+                "",
+                "",
+                ""
+            );
+        } else if(tokenId == 10) {
+            return Germ(
+                hex"07064448063516062411062B11052511052A11053614054B11055C31054411055331058411057512058712057912058B1105952105B611059A2105B911059C3105CB1105933105C411015512015912",
+                "",
+                "",
+                ""
+            );
+        } else if(tokenId == 11) {
+            return Germ(
+                hex"0406553606871206431A063211063D11023413024712023913024D11025B12026B11025312026411024211027511028611027712028911027A11028B2102AA1102842102A51102625102B311026D5102BC11015512015912",
                 "",
                 "",
                 ""
